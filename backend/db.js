@@ -5,7 +5,8 @@ const db = mysql.createConnection({
   user: "root",
   host: "localhost",
   password: "AaronCZ2606!",
-  database: "LogInSystem",
+  // database: "LogInSystem",
+  database: "orientation-app",
 });
 
 //connecting to db

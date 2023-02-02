@@ -20,9 +20,12 @@ const bodyParser = require("body-parser");
 //Enable mysql
 const mysql = require("mysql");
 
+const CLIENT_URL = "http://localhost:3000";
+const BACKEND_PORT = 3001;
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
   })
@@ -30,8 +33,8 @@ app.use(
 
 app.use(express.json()); //Auto parsing json objects sent from front end
 
-app.listen(3001, () => {
-  console.log(`Server is running on port: 3001`);
+app.listen(BACKEND_PORT, () => {
+  console.log(`Server is running on port: ${BACKEND_PORT}`);
 });
 
 //initialize express-session

@@ -12,13 +12,16 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 
+const BACKEND_URL =
+  process.env.NODE_ENV === "production" ? "" : "http://localhost:3001";
+
 function App() {
   const [email, setEmail] = useState(null);
   const [user, setUser] = useState(null);
   const [wishes, setWishes] = useState([]);
 
   const getWishes = () => {
-    Axios.get("http://localhost:3001/wish/getwishes").then((response) => {
+    Axios.get(`${BACKEND_URL}/wish/getwishes`).then((response) => {
       setWishes(response.data);
     });
   };
@@ -32,7 +35,7 @@ function App() {
         "Access-Control-Allow-Credentials": true,
       },
       withCredentials: true,
-      url: "http://localhost:3001/auth/getuser",
+      url: `${BACKEND_URL}/auth/getuser`,
     }).then((res) => {
       if (res.data) {
         setUser(res.data);
@@ -44,7 +47,7 @@ function App() {
   useEffect(() => {
     getUser();
     getWishes();
-    console.log(user);
+    console.log(BACKEND_URL);
   }, []);
 
   return (
