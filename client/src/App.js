@@ -18,7 +18,7 @@ import Axios from "axios";
 const CLIENT_URL = "http://18.141.207.124/";
 const BACKEND_URL = "http://18.141.207.124/api";
 
-BACKEND_URL = function App() {
+function App() {
   const [email, setEmail] = useState(null);
   const [user, setUser] = useState(null);
   const [wishes, setWishes] = useState([]);
@@ -93,6 +93,6 @@ BACKEND_URL = function App() {
       </div>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
