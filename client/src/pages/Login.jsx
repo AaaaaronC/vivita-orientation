@@ -4,8 +4,11 @@ import Facebook from "../images/facebook.png";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
  
-const CLIENT_URL = 'http://localhost:3000';
-const BACKEND_URL_AUTH = 'http://localhost:3001/auth';
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
+
+const CLIENT_URL = 'http://18.141.207.124/';
+const BACKEND_URL = 'http://18.141.207.124/api';
 
 export default function Login() {
   const [username, setUsername] = useState(null);
@@ -13,7 +16,7 @@ export default function Login() {
   const [loginMessage, setLoginMessage] = useState(null);
   
   const google = () => {
-    window.open(`${BACKEND_URL_AUTH}/google`, "_self");
+    window.open(`${BACKEND_URL}/auth/google`, "_self");
   };
 
   const login = () => {
@@ -24,7 +27,7 @@ export default function Login() {
         password: password,
       },
       withCredentials: true,
-      url: `${BACKEND_URL_AUTH}/login`
+      url: `${BACKEND_URL}/auth/login`
     }).then((response)=>{
       if (!response.data) {
         setLoginMessage('Wrong username/password!');

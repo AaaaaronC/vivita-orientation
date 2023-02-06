@@ -12,10 +12,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 
-const BACKEND_URL =
-  process.env.NODE_ENV === "production" ? "" : "http://localhost:3001";
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
 
-function App() {
+const CLIENT_URL = "http://18.141.207.124/";
+const BACKEND_URL = "http://18.141.207.124/api";
+
+BACKEND_URL = function App() {
   const [email, setEmail] = useState(null);
   const [user, setUser] = useState(null);
   const [wishes, setWishes] = useState([]);
@@ -90,6 +93,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

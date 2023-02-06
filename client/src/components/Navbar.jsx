@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // const CLIENT_URL = 'http://localhost:3000';
-// const BACKEND_URL_AUTH = 'http://localhost:3001/auth';
+// const BACKEND_URL = 'http://localhost:3001';
 
 const CLIENT_URL = 'http://18.141.207.124/';
-const BACKEND_URL_AUTH = 'http://18.141.207.124/api/auth';
+const BACKEND_URL = 'http://18.141.207.124/api';
+
 
 export default function navbar({user}) {
 
   const logout = () => {
-      window.open(`${BACKEND_URL_AUTH}/logout`, '_self');
+      window.open(`${BACKEND_URL}/auth/logout`, '_self');
   };
 
   const toHome = () => {

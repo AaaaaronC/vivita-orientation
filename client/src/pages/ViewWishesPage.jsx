@@ -4,21 +4,27 @@ import Axios from 'axios';
 import Delete from '../images/delete.png';
 import Edit from '../images/edit.png';
 
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
+
+const CLIENT_URL = 'http://18.141.207.124/';
+const BACKEND_URL = 'http://18.141.207.124/api';
+
 export default function ViewWishesPage({email}) {
 
   const [wishes, setWishes] = useState([]);
   const navigate = useNavigate();
 
   const getWishes = () => {
-    Axios.get("http://localhost:3001/wish/getwishes").then((response) => {
+    Axios.get(`${BACKEND_URL}/wish/getwishes`).then((response) => {
       setWishes(response.data);
     });
   };
 
   const deleteWish = (event, wishID) => {
-    event.preventDefault();
+    event.preventDefault(); 
     console.log(wishID);
-    Axios.post('http://localhost:3001/wish/deletewish', {
+    Axios.post(`${BACKEND_URL}/wish/deletewish`, {
       wishID: wishID,
     }).then((response) => {
       console.log(response);

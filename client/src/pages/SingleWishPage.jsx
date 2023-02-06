@@ -6,8 +6,6 @@ function SingleWishPage({email, wishes}) {
     const wishID = params.id;
     const wish = wishes.find((wish)=>wish.wishID == wishID);
 
-    // console.log(wish);
-
     return (
         <div className="singleWishPage">
             <div className="singleWishTitle">{wish.title}</div>

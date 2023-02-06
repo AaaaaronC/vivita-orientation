@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Axios from "axios";
 import {Link} from 'react-router-dom';
 
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
+
+const CLIENT_URL = 'http://18.141.207.124/';
+const BACKEND_URL = 'http://18.141.207.124/api';
+
 export default function MakeWishPage({email}) {
 
   const [wishTitle, setWishTitle] = useState(null);
@@ -10,7 +16,7 @@ export default function MakeWishPage({email}) {
   const [submitMessage, setSubmitMessage] = useState("");
 
   const makeWish = () => {
-    Axios.post("http://localhost:3001/wish/makewish", {
+    Axios.post(`${BACKEND_URL}/wish/makewish`, {
       email: email,
       wishTitle: wishTitle,
       wishBody: wishBody,

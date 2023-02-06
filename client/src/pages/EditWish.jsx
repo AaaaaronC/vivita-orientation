@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Axios from 'axios';
 import { Link, useLocation, useParams } from "react-router-dom";
 
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
+
+const CLIENT_URL = 'http://18.141.207.124/';
+const BACKEND_URL = 'http://18.141.207.124/api';
+
 function EditWish({ email }) {
   const wishID = useParams().id;
   const [wishTitle, setWishTitle] = useState(null);
@@ -14,7 +20,7 @@ function EditWish({ email }) {
   }
 
   const editWish = () => {
-    Axios.post("http://localhost:3001/wish/editwish", {
+    Axios.post(`${BACKEND_URL}/wish/editwish`, {
       wishID: wishID,
       wishTitle: wishTitle,
       wishBody: wishBody,

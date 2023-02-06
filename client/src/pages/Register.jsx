@@ -1,8 +1,12 @@
 import { React, useState } from "react";
 import Axios from "axios";
 
-const CLIENT_URL = 'http://localhost:3000';
-const BACKEND_URL_AUTH = 'http://localhost:3001/auth';
+// const CLIENT_URL = 'http://localhost:3000';
+// const BACKEND_URL = 'http://localhost:3001';
+
+const CLIENT_URL = 'http://18.141.207.124/';
+const BACKEND_URL = 'http://18.141.207.124/api';
+
 
 const bcrypt = require('bcryptjs');
 
@@ -20,13 +24,13 @@ function Register() {
         password: regPassword,
       },
       withCredentials: true,
-      url: `${BACKEND_URL_AUTH}/login`
+      url: `${BACKEND_URL}/auth/login`
     }).then(window.open(CLIENT_URL, "_self"));
   }
 
   const register = async () => {
     const hashedRegPassword = await bcrypt.hash(regPassword, 10);
-    Axios.post(`${BACKEND_URL_AUTH}/register`, {
+    Axios.post(`${BACKEND_URL}/auth/register`, {
       regUsername: regUsername,
       regEmail: regEmail,
       regPassword: hashedRegPassword
