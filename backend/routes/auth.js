@@ -30,6 +30,7 @@ router.post("/register", (req, res) => {
   const regUsername = req.body.regUsername;
   const regPassword = req.body.regPassword;
   const regEmail = req.body.regEmail;
+  console.log("registering");
   db.query(
     "INSERT INTO users (username, email, password) VALUES (?,?,?)",
     [regUsername, regEmail, regPassword],
