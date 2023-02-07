@@ -21,10 +21,10 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 
 // const CLIENT_URL = 'http://localhost:3000';
-// const BACKEND_URL = "http://localhost:3001";
+const BACKEND_URL = "http://localhost:3001";
 
 const CLIENT_URL = "http://18.141.207.124";
-const BACKEND_URL = "http://18.141.207.124";
+// const BACKEND_URL = "http://18.141.207.124";
 
 const BACKEND_PORT = 3001;
 
