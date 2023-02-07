@@ -26,6 +26,8 @@ const mysql = require("mysql");
 const CLIENT_URL = "http://18.141.207.124";
 const BACKEND_URL = "http://18.141.207.124";
 
+const BACKEND_PORT = 3001;
+
 app.use(
   cors({
     origin: CLIENT_URL,
