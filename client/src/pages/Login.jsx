@@ -4,11 +4,8 @@ import Facebook from "../images/facebook.png";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
  
-// const CLIENT_URL = 'http://localhost:3000';
-// const BACKEND_URL = 'http://localhost:3001';
-
-const CLIENT_URL = 'http://18.141.207.124/';
-const BACKEND_URL = 'http://18.141.207.124/api';
+const CLIENT_URL = "http://18.141.207.124";
+const BACKEND_URL = "http://18.141.207.124";
 
 export default function Login() {
   const [username, setUsername] = useState(null);

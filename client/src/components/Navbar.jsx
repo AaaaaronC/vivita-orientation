@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// const CLIENT_URL = 'http://localhost:3000';
-// const BACKEND_URL = 'http://localhost:3001';
-
-const CLIENT_URL = 'http://18.141.207.124/';
-const BACKEND_URL = 'http://18.141.207.124/api';
+const CLIENT_URL = "http://18.141.207.124";
+const BACKEND_URL = "http://18.141.207.124";
 
 
 export default function navbar({user}) {
