@@ -12,10 +12,12 @@ function ViewWish(wish) {
   return (
     <div className="viewWishOverlay">
       <div className="viewWishWrapper">
-        <div className="viewWishTitle">wish title</div>
+        <div className="viewWishTitle">{wish.title}</div>
         <div className="viewWishPoster">wish email</div>
         <div className="viewWishBody">wish body</div>
-        <Link className="viewWishButton" onClick={backHandler}>Back</Link>
+        <div className="viewWishButtonsWrapper">
+          <Link className="viewWishButton" onClick={backHandler}>Back</Link>
+        </div>
       </div>
     </div>
   )
