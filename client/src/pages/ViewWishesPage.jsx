@@ -45,6 +45,7 @@ export default function ViewWishesPage({email}) {
   const viewWish = (event, wish) => {
     setWish(wish);
     setViewMode(true);
+    console.log('viewing', wish);
   }
 
   useEffect(() => {
@@ -78,7 +79,7 @@ export default function ViewWishesPage({email}) {
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
       {(editMode && wishID) && <EditWish wishID = {wishID}/>}
-      {(viewMode && wishID) && <ViewWish wish = {wish}/>}
+      {(viewMode && wish) && <ViewWish wish = {wish}/>}
     </div>
   );
 }

@@ -79,7 +79,7 @@ export default function ViewYourWishesPage({email}) {
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
       {(editMode && wishID) && <EditWish wishID = {wishID}/>}
-      {(viewMode && wishID) && <ViewWish wish = {wish}/>}
+      {(viewMode && wish) && <ViewWish wish = {wish}/>}
     </div>
   );
 }
