@@ -37,6 +37,7 @@ export default function ViewWishesPage({email}) {
   }
 
   const editWish = (event, wish) => {
+    event.stopPropagation();
     event.preventDefault();
     setWishID(wish.wishID)
     setEditMode(true);
