@@ -37,16 +37,18 @@ export default function ViewYourWishesPage({email}) {
   }
 
   const editWish = (event, wish) => {
+    event.stopPropagation();
     event.preventDefault();
     setWishID(wish.wishID)
     setEditMode(true);
   }
 
   const viewWish = (event, wish) => {
-    // setWish(wish);
-    // setViewMode(true);
-    console.log('viewing');
+    setWish(wish);
+    setViewMode(true);
+    console.log('viewing', wish);
   }
+
 
   useEffect(() => {
     getWishes();

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 function ViewWish(wish) {
 
   const backHandler = () => {
-    window.location.reload();
+    // window.location.reload();
+    console.log(wish);
   };
 
   return (
