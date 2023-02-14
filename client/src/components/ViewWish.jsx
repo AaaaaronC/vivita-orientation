@@ -10,7 +10,7 @@ function ViewWish(wish) {
 
   const backHandler = () => {
     // window.location.reload();
-    console.log(wish);
+    console.log(wishTitle);
   };
 
   return (
