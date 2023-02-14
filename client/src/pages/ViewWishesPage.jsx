@@ -4,6 +4,7 @@ import Axios from 'axios';
 import Delete from '../images/delete.png';
 import Edit from '../images/edit.png';
 import EditWish from '../components/EditWish';
+import ViewWish from '../components/ViewWish';
 
 // const CLIENT_URL = "http://localhost:3000";
 // const BACKEND_URL = "http://localhost:3001";
@@ -17,6 +18,7 @@ export default function ViewWishesPage({email}) {
   const [editMode, setEditMode] = useState(false);
   const [viewMode, setViewMode] = useState(false);
   const [wishID, setWishID] = useState(null);
+  const [wish, setWish] = useState(null);
 
   const getWishes = () => {
     Axios.get(`${BACKEND_URL}/wish/getwishes`).then((response) => {
@@ -41,7 +43,7 @@ export default function ViewWishesPage({email}) {
   }
 
   const viewWish = (event, wish) => {
-    setWishID(wish.wishID);
+    setWish(wish);
     setViewMode(true);
   }
 
