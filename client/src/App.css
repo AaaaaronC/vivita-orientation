@@ -468,3 +468,7 @@ input{
   align-items: center;
   justify-content: center;
 }
+
+.viewWishTitle, .viewWishPoster, .viewWishBody{
+  color: white;
+}
