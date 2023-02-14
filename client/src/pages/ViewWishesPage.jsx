@@ -1,8 +1,12 @@
 import {React, useEffect, useState} from "react";
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import Delete from '../images/delete.png';
 import Edit from '../images/edit.png';
+import EditWish from '../components/EditWish';
+
+// const CLIENT_URL = "http://localhost:3000";
+// const BACKEND_URL = "http://localhost:3001";
 
 const CLIENT_URL = "http://18.141.207.124";
 const BACKEND_URL = "http://18.141.207.124";
@@ -10,7 +14,8 @@ const BACKEND_URL = "http://18.141.207.124";
 export default function ViewWishesPage({email}) {
 
   const [wishes, setWishes] = useState([]);
-  const navigate = useNavigate();
+  const [editMode, setEditMode] = useState(false);
+  const [wishID, setWishID] = useState(null);
 
   const getWishes = () => {
     Axios.get(`${BACKEND_URL}/wish/getwishes`).then((response) => {
@@ -19,8 +24,7 @@ export default function ViewWishesPage({email}) {
   };
 
   const deleteWish = (event, wishID) => {
-    event.preventDefault(); 
-    console.log(wishID);
+    event.preventDefault();
     Axios.post(`${BACKEND_URL}/wish/deletewish`, {
       wishID: wishID,
     }).then((response) => {
@@ -31,7 +35,8 @@ export default function ViewWishesPage({email}) {
 
   const editWish = (event, wish) => {
     event.preventDefault();
-    navigate(`/editwish/${wish.wishID}`);
+    setWishID(wish.wishID)
+    setEditMode(true);
   }
 
   useEffect(() => {
@@ -64,6 +69,8 @@ export default function ViewWishesPage({email}) {
           </div>
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
+      {(editMode && wishID) && <EditWish wishID = {wishID}/>}
+      {(viewMode && wishID) && <ViewWish wishes = {wishes} wishID = {wishID}/>}
     </div>
   );
 }

@@ -253,7 +253,19 @@ input{
   text-align: center;
 }
 
-.makeWishWrapper{
+.editWishOverlay{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  background-color: rgba(108, 108, 108, 0.44);
+}
+
+.makeWishWrapper, .editWishWrapper{
   width: 40%;
   height: 50%;
   background-color: steelblue;
@@ -279,10 +291,10 @@ input{
 .wishes{
   position: relative;
   top: 5%;
-  width: 50%;
+  width: 45%;
   height: 80%;
-  border-radius: 10%;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 10px;
   background-color: steelblue;
   text-align: center;
   color: white;
@@ -295,8 +307,8 @@ input{
   width: 90%;
   height: 80%;
   overflow: auto;
-  border-radius: 10px;
-  margin-top: 20px;
+  border-radius: 20px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -423,13 +435,13 @@ input{
   background-color: hwb(208 84% 10%);
 }
 
-.makeWishButtonsWrapper{
+.makeWishButtonsWrapper, .editWishButtonsWrapper{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.makeWishButton{
+.makeWishButton, .editWishButton{
   text-decoration:none;
   color: black;
   background-color: aliceblue;
@@ -445,7 +457,7 @@ input{
   font-size: 17px;
 }
 
-.makeWishButton:hover{
+.makeWishButton:hover, .editWishButton:hover{
   background-color: hwb(208 84% 10%);
 }
 

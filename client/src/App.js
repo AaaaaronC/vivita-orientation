@@ -7,10 +7,12 @@ import ViewWishesPage from "./pages/ViewWishesPage";
 import ViewYourWishesPage from "./pages/ViewYourWishesPage";
 import SingleWishPage from "./pages/SingleWishPage";
 import Register from "./pages/Register";
-import EditWish from "./pages/EditWish";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Axios from "axios";
+
+// const CLIENT_URL = "http://localhost:3000";
+// const BACKEND_URL = "http://localhost:3001";
 
 const CLIENT_URL = "http://18.141.207.124";
 const BACKEND_URL = "http://18.141.207.124";
@@ -47,7 +49,6 @@ function App() {
   useEffect(() => {
     getUser();
     getWishes();
-    console.log(BACKEND_URL);
   }, []);
 
   return (
@@ -68,7 +69,7 @@ function App() {
           />
           <Route
             path="/viewwishes"
-            element={<ViewWishesPage email={email} wishes={wishes} />}
+            element={<ViewWishesPage email={email} />}
           />
           <Route
             path="/viewyourwishes"
@@ -85,7 +86,6 @@ function App() {
             element={<SingleWishPage email={email} wishes={wishes} />}
           />
           <Route path="/register" element={<Register />} />
-          <Route path="editwish/:id" element={<EditWish email={email} />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,42 +1,47 @@
 import React, { useState } from "react";
-import Axios from 'axios';
-import { Link, useLocation, useParams } from "react-router-dom";
+import Axios from "axios";
+import { Link } from "react-router-dom";
+
+// const CLIENT_URL = "http://localhost:3000";
+// const BACKEND_URL = "http://localhost:3001";
 
 const CLIENT_URL = "http://18.141.207.124";
 const BACKEND_URL = "http://18.141.207.124";
 
-function EditWish({ email }) {
-  const wishID = useParams().id;
+function EditWish(wishID, editMode) {
   const [wishTitle, setWishTitle] = useState(null);
   const [wishBody, setWishBody] = useState(null);
-
   const [editMessage, setEditMessage] = useState("");
-
-  const check = () => {
-    console.log(wishID);
-  }
 
   const editWish = () => {
     Axios.post(`${BACKEND_URL}/wish/editwish`, {
-      wishID: wishID,
+      wishID: wishID.wishID,
       wishTitle: wishTitle,
       wishBody: wishBody,
     }).then((response) => {
       console.log(response);
       if (response.data === "ER_DUP_ENTRY") {
         setEditMessage("There is already a wish with this title!");
-      } else if (response.data === 'ER_BAD_NULL_ERROR') {
+      } else if (response.data === "ER_BAD_NULL_ERROR") {
         setEditMessage("Your wish title and wish can't be empty!");
       } else {
-        setEditMessage(response.data.message);
+        window.location.reload();
       }
     });
   };
 
+  const backHandler = () => {
+    window.location.reload(false);
+  };
+
+  // if (editMode === true) {
   return (
-    <div className="makeWishesPage">
-      <div className="makeWishWrapper">  
+    <div className="editWishOverlay">
+      <div className="editWishWrapper">
         <h1>Edit</h1>
+        <h4>
+          If you do not wish to change your wish title/body, leave it blank!
+        </h4>
         <textarea
           placeholder="New Wish Title"
           rows={1}
@@ -55,14 +60,19 @@ function EditWish({ email }) {
           }}
         />
         <br></br>
-        <div className="makeWishButtonsWrapper">
-          <Link className='makeWishButton' onClick={editWish}>Edit</Link>
-          <Link className='makeWishButton' to={'/viewyourwishes'}>Your Wishes</Link>
+        <div className="editWishButtonsWrapper">
+          <Link className="editWishButton" onClick={editWish}>
+            Edit
+          </Link>
+          <Link className="editWishButton" onClick={backHandler}>
+            Back
+          </Link>
         </div>
         <h4>{editMessage}</h4>
       </div>
     </div>
   );
+  // }
 }
 
 export default EditWish;

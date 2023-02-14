@@ -33,12 +33,23 @@ router.post("/editwish", (req, res) => {
       `UPDATE wishes SET body = '${wishBody}' WHERE wishID = ${wishID} `,
       (err, result) => {
         if (err) res.send(err.code);
+        else {
+          res.send({ message: "Your wish has been edited!" });
+          console.log("edited");
+        }
+      }
+    );
+  } else if (!wishBody) {
+    db.query(
+      `UPDATE wishes SET title = '${wishTitle}' WHERE wishID = ${wishID} `,
+      (err, result) => {
+        if (err) res.send(err.code);
         else res.send({ message: "Your wish has been edited!" });
       }
     );
   } else {
     db.query(
-      `UPDATE wishes SET title = '${wishTitle}' WHERE wishID = ${wishID} `,
+      `UPDATE wishes SET title = '${wishTitle}', body = '${wishBody}' WHERE wishID = ${wishID} `,
       (err, result) => {
         if (err) res.send(err.code);
         else res.send({ message: "Your wish has been edited!" });
