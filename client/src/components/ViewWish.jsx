@@ -11,9 +11,9 @@ function ViewWish(wish) {
   return (
     <div className="viewWishOverlay">
       <div className="viewWishWrapper">
-        <h1 className="viewWishTitle">{wish.title}</h1>
-        <h4 className="viewWishPoster">{wish.email}</h4>
-        <h4 className="viewWishBody">{wish.body}</h4>
+        <div className="viewWishTitle">{wish.title}</div>
+        <div className="viewWishPoster">{wish.email}</div>
+        <div className="viewWishBody">{wish.body}</div>
         <Link className="viewWishButton" onClick={backHandler}>Back</Link>
       </div>
     </div>

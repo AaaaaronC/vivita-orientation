@@ -45,6 +45,7 @@ export default function ViewYourWishesPage({email}) {
   const viewWish = (event, wish) => {
     // setWish(wish);
     // setViewMode(true);
+    console.log('viewing');
   }
 
   useEffect(() => {
