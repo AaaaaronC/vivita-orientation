@@ -457,11 +457,22 @@ input{
   font-size: 17px;
 }
 
-.makeWishButton:hover, .editWishButton:hover, .viewWishButton{
+.makeWishButton:hover, .editWishButton:hover, .viewWishButton:hover{
   background-color: hwb(208 84% 10%);
 }
 
 /* viewWish Component */
-.viewWishTitle, .viewWishPoster, .viewWishBody{
+.viewWishTitle{
   color: white;
+  font-size: 20px;
+}
+
+.viewWishPoster{
+  color: white;
+  font-size: 12px;
+}
+
+.viewWishBody{
+  color: white;
+  font-size: 15px;
 }
