@@ -43,7 +43,7 @@ export default function ViewYourWishesPage({email}) {
     setEditMode(true);
   }
 
-  const viewWish = (event) => {
+  const viewWish = (event, wish) => {
     setWish(wish);
     setViewMode(true);
     console.log('viewing', wish);

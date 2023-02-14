@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 
 function ViewWish(wish) {
 
-  const wishTitle = wish.title;
-  const wishPoster = wish.email;
-  const wishBody = wish.body;
-
   const backHandler = () => {
     // window.location.reload();
     console.log(wishTitle);
   };
+
+  useEffect(()=>{
+    const wishTitle = wish.title;
+    const wishPoster = wish.email;
+    const wishBody = wish.body;
+  })
 
   return (
     <div className="viewWishOverlay">
