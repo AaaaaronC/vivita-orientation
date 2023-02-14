@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function ViewWish(wish) {
 
-  const wishTitle = wish.title;
-  const wishPoster = wish.email;
-  const wishBody = wish.body;
+  var wishTitle = wish.title;
+  var wishPoster = wish.email;
+  var wishBody = wish.body;
 
   const backHandler = () => {
     // window.location.reload();
