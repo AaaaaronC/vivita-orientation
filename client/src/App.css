@@ -435,7 +435,7 @@ input{
   background-color: hwb(208 84% 10%);
 }
 
-.makeWishButtonsWrapper, .editWishButtonsWrapper{
+.makeWishButtonsWrapper, .editWishButtonsWrapper, .viewWishButtonsWrapper{
   display: flex;
   flex-direction: row;
   justify-content: center;

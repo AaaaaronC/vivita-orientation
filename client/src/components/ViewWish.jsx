@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 function ViewWish(wish) {
 
+  const wishTitle = wish.title;
+  const wishPoster = wish.email;
+  const wishBody = wish.body;
+
   const backHandler = () => {
     // window.location.reload();
     console.log(wish);
@@ -12,7 +16,7 @@ function ViewWish(wish) {
   return (
     <div className="viewWishOverlay">
       <div className="viewWishWrapper">
-        <div className="viewWishTitle">{wish.title}</div>
+        <div className="viewWishTitle">{wishTitle}</div>
         <div className="viewWishPoster">wish email</div>
         <div className="viewWishBody">wish body</div>
         <div className="viewWishButtonsWrapper">
