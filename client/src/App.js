@@ -81,10 +81,6 @@ function App() {
               )
             }
           />
-          <Route
-            path="/:id"
-            element={<SingleWishPage email={email} wishes={wishes} />}
-          />
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>

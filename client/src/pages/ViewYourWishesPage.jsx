@@ -15,9 +15,8 @@ export default function ViewYourWishesPage({email}) {
 
   const [wishes, setWishes] = useState([]);
   const [editMode, setEditMode] = useState(false);
+  const [viewMode, setViewMode] = useState(false);
   const [wishID, setWishID] = useState(null);
-
-  const navigate = useNavigate();
 
   const getWishes = () => {
     Axios.get(`${BACKEND_URL}/wish/getwishes`).then((response) => {
@@ -41,6 +40,11 @@ export default function ViewYourWishesPage({email}) {
     setEditMode(true);
   }
 
+  const viewWish = (event, wish) => {
+    setWishID(wish.wishID);
+    setViewMode(true);
+  }
+
   useEffect(() => {
     getWishes();
   }, []);
@@ -53,7 +57,7 @@ export default function ViewYourWishesPage({email}) {
             {wishes.map((wish) => { 
               if (email === wish.email) {
               return (
-                <Link className="wishWrapper" to={`/${wish.wishID}`} key={wish.wishID}>
+                <Link className="wishWrapper" onClick={(event)=>{viewWish(event, wish)}} key={wish.wishID}>
                   <div className="wishWrapperLeft">
                     <div className="wishTitle">{wish.title}</div>
                     <div className="wishBody">{wish.body}</div>
@@ -73,6 +77,7 @@ export default function ViewYourWishesPage({email}) {
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
       {(editMode && wishID) && <EditWish wishID = {wishID}/>}
+      {(viewMode && wishID) && <ViewWish wish = {wish}/>}
     </div>
   );
 }
