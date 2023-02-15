@@ -92,7 +92,9 @@ export default function ViewYourWishesPage({email}) {
           <div className="viewWishWrapper">
             <div className="viewWishTitle">{wish.title}</div>
             <div className="viewWishPoster">{wish.email}</div>
-            <div className="viewWishBody">{wish.body}</div>
+            <div className="viewWishBodyWrapper">
+              <div className="viewWishBody">{wish.body}</div>
+            </div>
             <div className="viewWishButtonsWrapper">
             <Link className="viewWishButton" onClick={backHandler}>Back</Link>
           </div>
