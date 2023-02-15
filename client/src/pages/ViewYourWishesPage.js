@@ -39,19 +39,17 @@ export default function ViewYourWishesPage({ email }) {
   };
 
   const editWish = () => {
-    console.log("edit clicked");
     Axios.post(`${BACKEND_URL}/wish/editwish`, {
       wishID: wishID,
       wishTitle: wishTitle,
       wishBody: wishBody,
     }).then((response) => {
-      console.log(response);
       if (response.data === "ER_DUP_ENTRY") {
         setEditMessage("There is already a wish with this title!");
       } else if (response.data === "ER_BAD_NULL_ERROR") {
         setEditMessage("Your wish title and wish can't be empty!");
       } else {
-        // window.location.reload();
+        window.location.reload();
       }
     });
   };
