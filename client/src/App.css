@@ -493,7 +493,7 @@ input{
   margin-right: auto;
   background-color: aliceblue;
   justify-content: center;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
 }
 
 .viewWishBody{
