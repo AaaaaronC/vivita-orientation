@@ -52,7 +52,6 @@ export default function ViewYourWishesPage({email}) {
 
   const backHandler = () => {
     window.location.reload();
-    console.log(wishTitle);
   };
 
 
