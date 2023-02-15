@@ -28,6 +28,7 @@ export default function ViewYourWishesPage({email}) {
 
   const deleteWish = (event, wishID) => {
     event.preventDefault();
+    event.stopPropagation();
     Axios.post(`${BACKEND_URL}/wish/deletewish`, {
       wishID: wishID,
     }).then((response) => {
@@ -48,6 +49,11 @@ export default function ViewYourWishesPage({email}) {
     setViewMode(true);
     console.log('viewing', wish);
   }
+
+  const backHandler = () => {
+    window.location.reload();
+    console.log(wishTitle);
+  };
 
 
   useEffect(() => {
@@ -82,7 +88,18 @@ export default function ViewYourWishesPage({email}) {
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
       {(editMode && wishID) && <EditWish wishID = {wishID}/>}
-      {(viewMode && wish) && <ViewWish wish = {wish}/>}
+      {(viewMode && wish) && 
+        <div className="viewWishOverlay">
+          <div className="viewWishWrapper">
+            <div className="viewWishTitle">{wish.title}</div>
+            <div className="viewWishPoster">{wish.email}</div>
+            <div className="viewWishBody">{wish.body}</div>
+            <div className="viewWishButtonsWrapper">
+            <Link className="viewWishButton" onClick={backHandler}>Back</Link>
+          </div>
+        </div>
+      </div>
+     }
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
 import { Link } from "react-router-dom";
 
 function ViewWish(wish) {
@@ -9,7 +8,7 @@ function ViewWish(wish) {
   var wishBody = wish.body;
 
   const backHandler = () => {
-    // window.location.reload();
+    window.location.reload();
     console.log(wishTitle);
   };
 

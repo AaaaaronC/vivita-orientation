@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const CLIENT_URL = "http://18.141.207.124";
 const BACKEND_URL = "http://18.141.207.124";
 
-function EditWish(wishID, editMode) {
+function EditWish(wishID) {
   const [wishTitle, setWishTitle] = useState(null);
   const [wishBody, setWishBody] = useState(null);
   const [editMessage, setEditMessage] = useState("");
@@ -19,7 +19,6 @@ function EditWish(wishID, editMode) {
       wishTitle: wishTitle,
       wishBody: wishBody,
     }).then((response) => {
-      console.log(response);
       if (response.data === "ER_DUP_ENTRY") {
         setEditMessage("There is already a wish with this title!");
       } else if (response.data === "ER_BAD_NULL_ERROR") {
@@ -34,7 +33,6 @@ function EditWish(wishID, editMode) {
     window.location.reload(false);
   };
 
-  // if (editMode === true) {
   return (
     <div className="editWishOverlay">
       <div className="editWishWrapper">
@@ -72,7 +70,6 @@ function EditWish(wishID, editMode) {
       </div>
     </div>
   );
-  // }
 }
 
 export default EditWish;

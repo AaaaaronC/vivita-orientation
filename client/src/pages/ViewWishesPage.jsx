@@ -28,6 +28,7 @@ export default function ViewWishesPage({email}) {
 
   const deleteWish = (event, wishID) => {
     event.preventDefault();
+    event.stopPropagation();
     Axios.post(`${BACKEND_URL}/wish/deletewish`, {
       wishID: wishID,
     }).then((response) => {
@@ -80,7 +81,7 @@ export default function ViewWishesPage({email}) {
         <Link className="toMakeWish" to={'/makewish'}>Add a wish</Link>
       </div>
       {(editMode && wishID) && <EditWish wishID = {wishID}/>}
-      {(viewMode && wish) && <ViewWish wish = {wish}/>}
+      {(viewMode && wish) && <ViewWish wishTitle = {wish.title} wishEmail = {wish.email} wishBody = {wish.body}/>}
     </div>
   );
 }
