@@ -265,7 +265,7 @@ input{
   background-color: rgba(108, 108, 108, 0.44);
 }
 
-.makeWishWrapper, .editWishWrapper, .viewWishWrapper{
+.makeWishWrapper, .editWishWrapper{
   width: 40%;
   height: 50%;
   background-color: steelblue;
@@ -462,17 +462,28 @@ input{
 }
 
 /* viewWish Component */
+
+.viewWishWrapper{
+  width: 30%;
+  height: 40%;
+  background-color: steelblue;
+  border-radius: 20px;
+  color: white;
+  justify-content: center;
+  box-shadow: 0px 5px 43px -21px rgba(66, 68, 90, 1);
+}
+
 .viewWishTitle{
   color: white;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .viewWishPoster{
   color: white;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .viewWishBody{
   color: white;
-  font-size: 15px;
+  font-size: 20px;
 }
