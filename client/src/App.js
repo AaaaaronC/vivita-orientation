@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import MakeWishPage from "./pages/MakeWishPage";
 import ViewWishesPage from "./pages/ViewWishesPage";
 import ViewYourWishesPage from "./pages/ViewYourWishesPage";
-import SingleWishPage from "./pages/SingleWishPage";
 import Register from "./pages/Register";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
