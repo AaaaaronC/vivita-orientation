@@ -41,7 +41,7 @@ export default function ViewYourWishesPage({ email }) {
   const editWish = () => {
     console.log("edit clicked");
     Axios.post(`${BACKEND_URL}/wish/editwish`, {
-      wishID: wishID.wishID,
+      wishID: wishID,
       wishTitle: wishTitle,
       wishBody: wishBody,
     }).then((response) => {
