@@ -26,6 +26,8 @@ export default function MakeWishPage({email}) {
         setSubmitMessage("You already made a wish with this title!");
       } else if (response.data === 'ER_BAD_NULL_ERROR') {
         setSubmitMessage("Your wish title and wish can't be empty!");
+      } else if (response.data === 'ER_DATA_TOO_LONG') {
+        setSubmitMessage("Your wish title/body is too long!");
       } else {
         setSubmitMessage(response.data.message);
       }
