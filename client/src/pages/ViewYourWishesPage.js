@@ -49,7 +49,9 @@ export default function ViewYourWishesPage({ email }) {
       } else if (response.data === "ER_BAD_NULL_ERROR") {
         setEditMessage("Your wish title and wish can't be empty!");
       } else {
-        window.location.reload();
+        // window.location.reload();
+        setEditMode(false);
+        getWishes();
       }
     });
   };
